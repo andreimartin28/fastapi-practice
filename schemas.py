@@ -12,14 +12,14 @@ class Article(BaseModel):
     article_content: str 
     article_published: bool
     class Config():
-        orm_mode = True
+        from_attributes = True
 
 class UserDisplay(BaseModel):
     user_username : str
     user_email: str
     items: List[Article] = []
     class Config():
-        orm_mode = True
+        from_attributes = True
 
 #-----------------------------------#
 
@@ -34,7 +34,7 @@ class User(BaseModel):
     user_id: int 
     user_username: str
     class Config():
-        orm_mode = True
+        from_attributes = True
 
 class ArticleDisplay(BaseModel):
     article_title: str
@@ -42,4 +42,4 @@ class ArticleDisplay(BaseModel):
     article_published: bool
     user: User
     class Config():
-        orm_mode = True   
+        from_attributes = True   

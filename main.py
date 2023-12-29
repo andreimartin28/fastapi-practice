@@ -1,11 +1,15 @@
 from fastapi import FastAPI, Request, status
-from controllers import blog_get, blog_post, user, article, product
+from controllers import blog_get, blog_post, user, article, product, file
+from auth import authentication
 from db import models
 from db.database import engine
 from exceptions import StoryException
 from fastapi.responses import JSONResponse, PlainTextResponse
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
+app.include_router(file.router)
+app.include_router(authentication.router)
 app.include_router(blog_get.router)
 app.include_router(blog_post.router)
 app.include_router(user.router)
@@ -27,3 +31,5 @@ def story_exception_handler(request: Request, exc: StoryException):
 #                                 status_code=status.HTTP_400_BAD_REQUEST)
 
 models.Base.metadata.create_all(engine)
+
+app.mount('/files', StaticFiles(directory='files/'), name='files')

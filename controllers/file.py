@@ -29,3 +29,4 @@ def get_uploadfile(upload_file: UploadFile = File(...)):
 def get_file(name: str):
     path = f'files/{name}'
     return path
+

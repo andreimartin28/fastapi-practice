@@ -43,3 +43,10 @@ class ArticleDisplay(BaseModel):
     user: User
     class Config():
         from_attributes = True   
+
+
+
+class ProductBase(BaseModel):
+    product_title: str
+    product_description: str
+    product_price: float

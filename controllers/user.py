@@ -5,7 +5,7 @@ from db.database import get_db
 from db import db_user
 from typing import List
 from auth.oauth2 import get_current_user
-
+ 
 router = APIRouter(
     prefix='/user',
     tags=['user']

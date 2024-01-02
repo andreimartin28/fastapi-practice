@@ -26,7 +26,6 @@ def create_blog(blog: BlogModel, id: int, version: int = 1):
         "version": version
         }
 
-
 @router.post('/new/{id}/comment/{comment_id}')
 def create_comment(blog: BlogModel, 
                     id: int, 
@@ -58,7 +57,6 @@ def create_comment(blog: BlogModel,
         'version': v,
         'comment_id': comment_id
     }
-
 
 def required_functionality():
     return {"message": "learning FastAPI"}
